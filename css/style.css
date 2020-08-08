@@ -57,9 +57,10 @@ h1 {
 }
 h2 {
     font-size: 32px;
-    color: #4CAF50;
+    color: #ff0000;
     margin-top: 20px;
     margin-bottom: 20px;
+    font-weight: bold;
 }
 .wthree-info p{
 	color: #ff0000;
