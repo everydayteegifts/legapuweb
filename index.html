@@ -37,40 +37,46 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<h2>Trouble using your phone or computer?</h2>
 			</div>
 			<!--timer-->
-			<div class="agileits-timer"> 
-				<div class="clock">
-					<div class="column days">
-						<div class="timer" id="days"></div>
-						<div class="text">DAYS</div>
-					</div>
-					<div class="timer days"></div>
-					<div class="column">
-						<div class="timer" id="hours"></div>
-						<div class="text">HRS</div>
-					</div>
-					<div class="timer"></div>
-					<div class="column">
-						<div class="timer" id="minutes"></div>
-						<div class="text">MINS</div>
-					</div>
-					<div class="timer"></div>
-					<div class="column">
-						<div class="timer" id="seconds"></div>
-						<div class="text">SECS</div>
-					</div>
-					<div class="clear"> </div>
-				</div>	 
+			<div class="wthree-info">
+				<p>only £15 per consultation</p>
 			</div>
 			<!--//timer-->
 			<!--newsletter-->
 			<div class="newsletter">
 				<h2></h2>
-				<button class="button" type="button" onclick="window.location.href='https://screenleap.com/techassistant';">Get Help</button>
-
-
 				
 
-            </div>
+				<div id="paypal-button-container"></div>
+				<script src="https://www.paypal.com/sdk/js?client-id=sb&currency=GBP" data-sdk-integration-source="button-factory"></script>
+				<script>
+				  paypal.Buttons({
+				      style: {
+					  shape: 'rect',
+					  color: 'gold',
+					  layout: 'vertical',
+					  label: 'pay',
+					  
+				      },
+				      createOrder: function(data, actions) {
+					  return actions.order.create({
+					      purchase_units: [{
+						  amount: {
+						      value: '1'
+						  }
+					      }]
+					  });
+				      },
+				      onApprove: function(data, actions) {
+					  return actions.order.capture().then(function(details) {
+					      alert('Transaction completed by ' + details.payer.name.given_name + '!');
+					  });
+				      }
+				  }).render('#paypal-button-container');
+				</script>
+
+				<button class="button" type="button" onclick="window.location.href='https://screenleap.com/techassistant';">Connect</button>
+	
+            		</div>
 			<!--//newsletter-->
 			<!--copyright-->
 			<div class="copy w3ls">
@@ -80,9 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
    </div>
 <!--scripts--> 
-	<script type="text/javascript" src=" js/moment.js"></script>
-	<script type="text/javascript" src=" js/moment-timezone-with-data.js"></script>
-	<script type="text/javascript" src="js/timer.js"></script>
+	
 <!--//scripts--> 
 </body>
 </html>	
